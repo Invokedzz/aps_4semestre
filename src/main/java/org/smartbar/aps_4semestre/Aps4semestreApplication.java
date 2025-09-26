@@ -6,8 +6,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class Aps4semestreApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(Aps4semestreApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(Aps4semestreApplication.class, args);
+    }
 
 }
