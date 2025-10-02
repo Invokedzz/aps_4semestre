@@ -8,8 +8,6 @@ public record PaginationDTO <E> (
 
         int pageNumber,
 
-        int size,
-
-        int totalPages
+        int size
 
 ) {}

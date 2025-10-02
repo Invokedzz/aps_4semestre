@@ -3,7 +3,9 @@ package org.smartbar.aps_4semestre.state;
 import org.bson.types.ObjectId;
 import org.smartbar.aps_4semestre.state.coordinate.Coordinate;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
+@Document("amazonia_2023")
 public class State extends Coordinate {
 
     @Id

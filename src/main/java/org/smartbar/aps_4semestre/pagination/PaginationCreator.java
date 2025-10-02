@@ -1,18 +1,16 @@
 package org.smartbar.aps_4semestre.pagination;
 
-import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 
 import java.util.Collection;
 
-public class PaginationCreator <DTO, E> {
+public class PaginationCreator <DTO> {
 
-    public PaginationDTO <DTO> createPaginatedResponse (Collection <DTO> collection, Page <E> page) {
+    public PaginationDTO <DTO> createPaginatedResponse (Collection <DTO> collection, Pageable page) {
 
-        int size = page.getSize(), index = page.getNumber();
+        int size = page.getPageSize(), index = page.getPageNumber();
 
-        int totalPages = page.getTotalPages();
-
-        return new PaginationDTO<>(collection, index, size, totalPages);
+        return new PaginationDTO<>(collection, index, size);
 
     }
 
