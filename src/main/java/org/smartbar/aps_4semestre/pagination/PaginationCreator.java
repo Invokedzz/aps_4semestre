@@ -11,8 +11,7 @@ public class PaginationCreator <E> {
     public PaginationDTO <E> createPaginatedResponse (List <E> list, Pageable pageable) {
 
         Page <E> page = new PageImpl<>(list, pageable, list.size());
-
-        return new PaginationDTO<>(page);
+        return new PaginationDTO<>(page, page.hasPrevious());
 
     }
 
