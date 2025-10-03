@@ -18,9 +18,9 @@ public class StateQueryParams {
 
     }
 
-    public void setSize (int size) {
+    public void setSize (String size) {
 
-        this.size = size;
+        if (size.matches("^\\d+$")) this.size = Integer.parseInt(size);
 
     }
 
@@ -30,9 +30,9 @@ public class StateQueryParams {
 
     }
 
-    public void setPageNumber (int pageNumber) {
+    public void setPageNumber (String pageNumber) {
 
-        this.pageNumber = pageNumber;
+        if (pageNumber.matches("^\\d+$")) this.pageNumber = Integer.parseInt(pageNumber);
 
     }
 

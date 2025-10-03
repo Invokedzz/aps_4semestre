@@ -3,11 +3,13 @@ package org.smartbar.aps_4semestre.state;
 import jakarta.validation.Valid;
 import org.smartbar.aps_4semestre.pagination.PaginationDTO;
 import org.smartbar.aps_4semestre.pagination.StateQueryParams;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
+@Validated
 public class StateController {
 
     private final StateService stateService;
