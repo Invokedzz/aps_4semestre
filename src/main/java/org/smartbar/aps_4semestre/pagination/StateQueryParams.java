@@ -1,7 +1,8 @@
 package org.smartbar.aps_4semestre.pagination;
 
-import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
+
+import java.util.Set;
 
 public class StateQueryParams {
 
@@ -13,6 +14,10 @@ public class StateQueryParams {
 
     private int year = 2024;
 
+    private final static Set <Integer> AVAILABLE_YEARS_FOR_QUERY = Set.of(2023, 2024);
+
+    private final static String NUMERIC_REGEX_PATTERN = "^\\d+$";
+
     public StateQueryParams () {}
 
     public int getSize () {
@@ -23,7 +28,7 @@ public class StateQueryParams {
 
     public void setSize (String size) {
 
-        if (size.matches("^\\d+$"))
+        if (size.matches(NUMERIC_REGEX_PATTERN))
             this.size = Integer.parseInt(size);
 
     }
@@ -36,7 +41,7 @@ public class StateQueryParams {
 
     public void setPageNumber (String pageNumber) {
 
-        if (pageNumber.matches("^\\d+$"))
+        if (pageNumber.matches(NUMERIC_REGEX_PATTERN))
             this.pageNumber = Integer.parseInt(pageNumber);
 
     }
@@ -47,9 +52,16 @@ public class StateQueryParams {
 
     }
 
-    public void setYear (int year) {
+    public void setYear (String year) {
 
-        this.year = year;
+        boolean matches = year.matches(NUMERIC_REGEX_PATTERN);
+
+        if (matches) {
+
+            int convertedToNum = Integer.parseInt(year);
+            if (AVAILABLE_YEARS_FOR_QUERY.contains(convertedToNum)) this.year = convertedToNum;
+
+        }
 
     }
 
