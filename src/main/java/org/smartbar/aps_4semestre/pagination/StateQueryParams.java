@@ -1,5 +1,6 @@
 package org.smartbar.aps_4semestre.pagination;
 
+import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
 
 public class StateQueryParams {
@@ -9,6 +10,8 @@ public class StateQueryParams {
 
     @Min(value = 0, message = "Minimum value for 'pageNumber' is 0")
     private int pageNumber = 0;
+
+    private int year = 2024;
 
     public StateQueryParams () {}
 
@@ -20,7 +23,8 @@ public class StateQueryParams {
 
     public void setSize (String size) {
 
-        if (size.matches("^\\d+$")) this.size = Integer.parseInt(size);
+        if (size.matches("^\\d+$"))
+            this.size = Integer.parseInt(size);
 
     }
 
@@ -32,7 +36,20 @@ public class StateQueryParams {
 
     public void setPageNumber (String pageNumber) {
 
-        if (pageNumber.matches("^\\d+$")) this.pageNumber = Integer.parseInt(pageNumber);
+        if (pageNumber.matches("^\\d+$"))
+            this.pageNumber = Integer.parseInt(pageNumber);
+
+    }
+
+    public int getYear () {
+
+        return year;
+
+    }
+
+    public void setYear (int year) {
+
+        this.year = year;
 
     }
 

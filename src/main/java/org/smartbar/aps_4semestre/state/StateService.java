@@ -13,11 +13,11 @@ import java.util.List;
 @Service
 public class StateService {
 
-    private final StateRepository stateRepository;
+    private final StateRepositoryExtension stateRepositoryEx;
 
-    public StateService (StateRepository stateRepository) {
+    public StateService (StateRepositoryExtension stateRepositoryEx) {
 
-        this.stateRepository = stateRepository;
+        this.stateRepositoryEx = stateRepositoryEx;
 
     }
 
@@ -25,7 +25,7 @@ public class StateService {
 
         Pageable page = PageRequest.of(params.getPageNumber(), params.getSize());
 
-        Page <State> statePage = stateRepository.findAll(page);
+        Page <State> statePage = stateRepositoryEx.findStateDataAccordingToYear(params.getYear(), page);
         PaginationCreator <StateDTO> creator = new PaginationCreator<>();
         List <StateDTO> collection = statePage.stream().map(StateDTO::new).toList();
 
