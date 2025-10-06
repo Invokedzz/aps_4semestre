@@ -19,7 +19,7 @@ public class StateQueryParams {
     private final static Set <Integer> AVAILABLE_YEARS_FOR_QUERY = Set.of(2023, 2024);
 
     private final static Set <String> AVAILABLE_FIELDS_TO_SORT = Set.of(
-            "data", "bioma", "municipio", "estado"
+            "data", "bioma", "municipio", "estado", "latitude", "longitude"
     );
 
     private final static String NUMERIC_REGEX_PATTERN = "^\\d+$";

@@ -6,9 +6,9 @@ public class Coordinate {
 
     public String foco_id;
 
-    public double lat;
+    public Double lat;
 
-    public double lon;
+    public Double lon;
 
     public String data_pas;
 
