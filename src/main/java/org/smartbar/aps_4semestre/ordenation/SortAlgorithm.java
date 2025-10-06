@@ -72,6 +72,7 @@ public class SortAlgorithm <E extends State> extends Sort {
             case "data" -> a.data_pas.compareTo(b.data_pas);
             case "bioma" -> a.bioma.compareTo(b.bioma);
             case "municipio" -> a.municipio.compareTo(b.municipio);
+            case "estado" -> a.estado.compareTo(b.estado);
 
             default -> throw new IllegalArgumentException("Critério de ordenação inválido: " + criteria);
 

@@ -47,7 +47,7 @@ public class StateService {
         List <State> states = stateTemplate.findStateDataAccordingToYear(params.getYear(), page);
 
         SortAlgorithm <State> sort = new SortAlgorithm<>();
-        sort.quickSort(states, 0, states.size() - 1, "municipio");
+        sort.quickSort(states, 0, states.size() - 1, params.getOrderBy());
 
         return new PageImpl<>(states);
 

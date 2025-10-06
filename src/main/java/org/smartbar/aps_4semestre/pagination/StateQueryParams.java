@@ -14,7 +14,13 @@ public class StateQueryParams {
 
     private int year = 2024;
 
+    private String orderBy = "estado";
+
     private final static Set <Integer> AVAILABLE_YEARS_FOR_QUERY = Set.of(2023, 2024);
+
+    private final static Set <String> AVAILABLE_FIELDS_TO_SORT = Set.of(
+            "data", "bioma", "municipio", "estado"
+    );
 
     private final static String NUMERIC_REGEX_PATTERN = "^\\d+$";
 
@@ -62,6 +68,18 @@ public class StateQueryParams {
             if (AVAILABLE_YEARS_FOR_QUERY.contains(convertedToNum)) this.year = convertedToNum;
 
         }
+
+    }
+
+    public String getOrderBy () {
+
+        return orderBy;
+
+    }
+
+    public void setOrderBy (String orderBy) {
+
+        if (AVAILABLE_FIELDS_TO_SORT.contains(orderBy)) this.orderBy = orderBy;
 
     }
 
