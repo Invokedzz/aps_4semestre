@@ -18,14 +18,12 @@ public class StateRepositoryTemplate {
 
     }
 
-    public Page <State> findStateDataAccordingToYear (int year, Pageable pageable) {
+    public List <State> findStateDataAccordingToYear (int year, Pageable pageable) {
 
         String collectionName = "amazonia_" + year;
 
         Query query = new Query().with(pageable);
-        List <State> results = mongoTemplate.find(query, State.class, collectionName);
-
-        return new PageImpl<>(results);
+        return mongoTemplate.find(query, State.class, collectionName);
 
     }
 
