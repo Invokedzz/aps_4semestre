@@ -76,7 +76,7 @@ public class SortAlgorithm <E extends State> extends Sort {
             case "latitude" -> a.lat.compareTo(b.lat);
             case "longitude" -> a.lon.compareTo(b.lon);
 
-            default -> throw new IllegalArgumentException("Critério de ordenação inválido: " + criteria);
+            default -> throw new IllegalArgumentException("Invalid sort criteria: " + criteria);
 
         };
 

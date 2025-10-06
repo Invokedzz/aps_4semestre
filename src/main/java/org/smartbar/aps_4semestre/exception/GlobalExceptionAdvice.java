@@ -13,11 +13,22 @@ import java.util.*;
 public class GlobalExceptionAdvice {
 
     @ExceptionHandler(MethodArgumentNotValidException.class)
-    public ResponseEntity <ExceptionDTO> handleArgumentNotValidException (MethodArgumentNotValidException ex) {
+    public ResponseEntity <ExceptionDTO> handleArgumentNotValidException (MethodArgumentNotValidException e) {
 
-        List <String> messages = getListOfErrorMessagesRelatedToArgumentNotValidEx(ex);
+        List <String> messages = getListOfErrorMessagesRelatedToArgumentNotValidEx(e);
 
         ExceptionDTO response = generateResponse(messages, HttpStatus.BAD_REQUEST);
+
+        return new ResponseEntity<>(response, HttpStatus.BAD_REQUEST);
+
+    }
+
+    @ExceptionHandler(IllegalArgumentException.class)
+    public ResponseEntity <ExceptionDTO> handleBadRequestException (Exception e) {
+
+        String message = e.getMessage();
+
+        ExceptionDTO response = generateResponse(List.of(message), HttpStatus.BAD_REQUEST);
 
         return new ResponseEntity<>(response, HttpStatus.BAD_REQUEST);
 
