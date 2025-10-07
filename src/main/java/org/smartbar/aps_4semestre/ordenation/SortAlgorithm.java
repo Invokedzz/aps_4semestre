@@ -1,9 +1,11 @@
 package org.smartbar.aps_4semestre.ordenation;
 
 import org.smartbar.aps_4semestre.state.State;
+import org.springframework.stereotype.Component;
 
 import java.util.List;
 
+@Component
 public class SortAlgorithm <E extends State> extends Sort {
 
     private int numberOfComparisons = 0;
