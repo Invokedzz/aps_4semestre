@@ -15,7 +15,7 @@ public class SortAlgorithm <E extends State> extends Sort {
     // @param fim Índice final
     // @param criterio Critério de ordenação ("data", "bioma", "municipio", "precipitacao")
 
-    public void quickSort (List <E> list, int begin, int end, String criteria) {
+    public Sort quickSort (List <E> list, int begin, int end, String criteria) {
 
         if (begin < end) {
 
@@ -24,6 +24,8 @@ public class SortAlgorithm <E extends State> extends Sort {
             quickSort(list, pivotIndex + 1, end, criteria);
 
         }
+
+        return new Sort(numberOfComparisons, numberOfSwaps);
 
     }
 
