@@ -1,7 +1,7 @@
 package org.smartbar.aps_4semestre.state;
 
 import jakarta.validation.Valid;
-import org.smartbar.aps_4semestre.pagination.PaginationDTO;
+import org.smartbar.aps_4semestre.pagination.ResponseDTO;
 import org.smartbar.aps_4semestre.pagination.StateQueryParams;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -18,7 +18,7 @@ public class StateController {
     }
 
     @GetMapping
-    public PaginationDTO <StateDTO> getStateData (@Valid StateQueryParams params) {
+    public ResponseDTO <StateDTO> getStateData (@Valid StateQueryParams params) {
 
         return stateService.findStateData(params);
 

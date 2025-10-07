@@ -1,11 +1,9 @@
 package org.smartbar.aps_4semestre.ordenation;
 
 import org.smartbar.aps_4semestre.state.State;
-import org.springframework.stereotype.Component;
 
 import java.util.List;
 
-@Component
 public class SortAlgorithm <E extends State> extends Sort {
 
     private int numberOfComparisons = 0;
@@ -26,6 +24,13 @@ public class SortAlgorithm <E extends State> extends Sort {
             quickSort(list, pivotIndex + 1, end, criteria);
 
         }
+
+    }
+
+    public void resetCounters () {
+
+        this.setSwaps(0);
+        this.setComparisons(0);
 
     }
 
