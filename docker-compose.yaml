@@ -1,0 +1,10 @@
+services:
+  app:
+    image: invokedzz/spring-aps
+    container_name: aps
+    restart: always
+    ports:
+      - "8080:8080"
+    environment:
+      MONGODB_DATABASE_NAME: ${MONGODB_DATABASE_NAME}
+      MONGODB_CONNECTION_STRING: ${MONGODB_CONNECTION_STRING}
