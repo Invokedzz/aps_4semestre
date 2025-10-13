@@ -1,0 +1,138 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Dados de Estados</title>
+    <meta charset="UTF-8" />
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f5f6fa;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #2f3640;
+            margin-bottom: 30px;
+        }
+
+        table {
+            width: 95%;
+            margin: 0 auto;
+            border-collapse: collapse;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+
+        thead {
+            background-color: #273c75;
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f0f0f0;
+        }
+
+        tr:hover {
+            background-color: #dcdde1;
+        }
+
+        .pagination {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .pagination form {
+            display: inline-block;
+        }
+
+        .pagination button {
+            background-color: #40739e;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            margin: 0 10px;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+
+        .pagination button:hover {
+            background-color: #273c75;
+        }
+
+        .page-info {
+            font-weight: bold;
+            color: #2f3640;
+        }
+
+        .sort-info {
+            text-align: center;
+            margin-top: 10px;
+            font-size: 14px;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Dados de Estados</h1>
+
+<table>
+    <thead>
+    <tr>
+        <th>ID BDQ</th>
+        <th>Foco ID</th>
+        <th>Latitude</th>
+        <th>Longitude</th>
+        <th>Data</th>
+        <th>País</th>
+        <th>Estado</th>
+        <th>Município</th>
+        <th>Bioma</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="state : ${states}">
+        <td th:text="${state.id_bdq}">1666954552</td>
+        <td th:text="${state.foco_id}">UUID</td>
+        <td th:text="${state.lat}">0.0</td>
+        <td th:text="${state.lon}">0.0</td>
+        <td th:text="${state.data_pass}">2024-01-08</td>
+        <td th:text="${state.pais}">Brasil</td>
+        <td th:text="${state.estado}">Estado</td>
+        <td th:text="${state.municipio}">Município</td>
+        <td th:text="${state.bioma}">Bioma</td>
+    </tr>
+    </tbody>
+</table>
+
+<div class="pagination">
+    <form th:action="@{/states}" method="get">
+        <input type="hidden" name="pageNumber" th:value="${currentPage - 1}" />
+        <input type="hidden" name="size" th:value="${pageSize}" />
+    </form>
+
+    <span class="page-info">
+            Página <span th:text="${currentPage + 1}"></span> de <span th:text="${totalPages}"></span>
+        </span>
+
+    <form th:action="@{/states}" method="get">
+        <input type="hidden" name="pageNumber" th:value="${currentPage + 1}" />
+        <input type="hidden" name="size" th:value="${pageSize}" />
+        <button type="submit" th:if="${currentPage + 1 < totalPages}">Próxima Página ➡</button>
+    </form>
+</div>
+
+<div class="sort-info">
+    <p th:text="'Trocas: ' + ${sortSwaps} + ' | Comparações: ' + ${sortComparisons}">Trocas: 0 | Comparações: 0</p>
+</div>
+
+</body>
+</html>
