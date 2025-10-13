@@ -33,6 +33,7 @@ aprendizado de máquina ou deep learning.
 
 - Java;
 - Spring Boot;
+- Thymeleaf;
 - MongoDB;
 - Docker.
 
