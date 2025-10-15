@@ -1,5 +1,6 @@
 services:
   app:
+    build: .
     image: invokedzz/spring-aps
     container_name: aps
     restart: always
