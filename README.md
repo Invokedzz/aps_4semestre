@@ -2,6 +2,8 @@
 
 O tema dessa APS (atividades práticas supervisionadas) é: “Desenvolvimento de um Sistema para Análise de Performance de Algoritmos de Ordenação de Dados”
 
+<img width="1383" height="395" alt="Screenshot 2025-10-15 at 15 41 58" src="https://github.com/user-attachments/assets/db7da764-4bc0-407b-a2aa-270c26b881bc" />
+
 ## Proposta do Trabalho
 
 A análise de performance de algoritmos aplicada ao geoprocessamento de dados
@@ -54,6 +56,14 @@ capacidade de inicializar o objeto quando for pedido pela primeira vez.
 Levando em conta o uso de boas práticas, optamos por fazer uso da arquitetura de três camadas; algo muito utilizado em projetos de grandes empresas.
 Através dessa arquitetura, fazemos separação total das diferentes camadas (serviço, banco de dados e visualização) - garantindo escalabilidade e facilidade na hora de realizar manutenções.
 Enquanto o front-end deve ser exibido localmente para o usuário, a lógica/regra de negócio está em um container via Docker e o banco de dados em nuvem por meio do MongoDB ATLAS.
+
+## Como rodar o projeto
+
+### Manipulando a Query String
+
+A manipulação da query string pode ser feita de diversas formas. Seja para trabalhar com paginação, ordenação de dados ou até mesmo trocar uma database. Para lidar com paginação, pode fazer uso do ``size`` ou do ``pageNumber``. Um exemplo de manipulação que pode fazer utilizando esses componentes seria: ```http://localhost:8080?size=10&pageNumber=1```.
+
+O projeto analisa dados de 2023/2024 do estado do Amazonas; para tornar tudo mais dinâmico e prático, optamos por tornar possível a mudança de databases através da query. Veja como pode ser feito: ```http://localhost:8080?year=2023```
 
 ## Licença
 
