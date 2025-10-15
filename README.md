@@ -61,9 +61,14 @@ Enquanto o front-end deve ser exibido localmente para o usuário, a lógica/regr
 
 ### Manipulando a Query String
 
+> Não é necessário se preocupar com lançamento de exceções caso o tipo passado no query param for diferente do original. Os valores das variáveis definidas como query params são alteradas apenas com os valores/tipos corretos. 
+
 A manipulação da query string pode ser feita de diversas formas. Seja para trabalhar com paginação, ordenação de dados ou até mesmo trocar uma database. Para lidar com paginação, pode fazer uso do ``size`` ou do ``pageNumber``. Um exemplo de manipulação que pode fazer utilizando esses componentes seria: ```http://localhost:8080?size=10&pageNumber=1```.
 
-O projeto analisa dados de 2023/2024 do estado do Amazonas; para tornar tudo mais dinâmico e prático, optamos por tornar possível a mudança de databases através da query. Veja como pode ser feito: ```http://localhost:8080?year=2023```
+O projeto analisa dados de 2023/2024 do estado do Amazonas; para tornar tudo mais dinâmico e prático, optamos por tornar possível a mudança de databases através da query. Veja como pode ser feito: ```http://localhost:8080?year=2023```.
+
+Para fazer a ordenação, deve-se usar o query param ``orderBy`` levando em consideração os campos disponíveis para ordenar (latitude, longitude, estado, municipio, data e bioma).
+Veja o seguinte exemplo: ``http://localhost:8080?orderBy=municipio``. Não só isso, você também pode juntar a cláusula ``orderBy`` com outras cláusulas que foram apresentadas até aqui, como apresentado a seguir: ``http://localhost:8080?size=10&year=2023&orderBy=municipio``.
 
 ## Licença
 
