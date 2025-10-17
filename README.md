@@ -57,6 +57,13 @@ Levando em conta o uso de boas práticas, optamos por fazer uso da arquitetura d
 Através dessa arquitetura, fazemos separação total das diferentes camadas (serviço, banco de dados e visualização) - garantindo escalabilidade e facilidade na hora de realizar manutenções.
 Enquanto o front-end deve ser exibido localmente para o usuário, a lógica/regra de negócio está em um container via Docker e o banco de dados em nuvem por meio do MongoDB ATLAS.
 
+## Deploy
+
+Para trabalhar com a arquitura de três camadas - era necessário fazer o deploy do nosso backend; tendo isso em mente decidimos utilizar a plataforma Render.
+Fizemos o push da nossa imagem no Docker, inserimos as variáveis do .env e hospedamos nossa aplicação em um servidor. Isso não só torna nossa aplicação mais desacoplada, mas também coloca ela nos padrões de mercado exigidos para APIs modernas.
+
+<img width="1079" height="563" alt="Screenshot 2025-10-17 at 14 50 30" src="https://github.com/user-attachments/assets/59eb4634-3275-45ab-ba59-16e6e7b59218" />
+
 ## Como rodar o projeto
 
 ### Manipulando a Query String
