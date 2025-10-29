@@ -66,7 +66,47 @@ Fizemos o push da nossa imagem no Docker, inserimos as variáveis do .env e hosp
 
 ## Como rodar o projeto
 
-### Manipulando a Query String
+### Acesso através do domínio
+
+O projeto pode ser acessado através dessa <a href="https://spring-aps.onrender.com/state">URL</a>
+
+### Clonando e instalando dependências
+
+Ou, se preferir, você pode fazer o acesso de outra maneira. Primeiro, dê um git clone usando o seguinte comando: 
+
+```
+git clone https://github.com/Invokedzz/aps_4semestre
+```
+
+Depois disso é necessário fazer a instalação das dependências. Portanto, use esse comando:
+
+```
+./mvnw install
+```
+
+### Criando um arquivo .env
+
+Para acessar ao MongoDB, é necessário criar um arquivo .env na raíz do projeto com as seguintes variáveis (note que você deve ter uma database e uma connection string já definidas):
+
+```
+MONGODB_CONNECTION_STRING=
+MONGODB_DATABASE_NAME=
+```
+
+Dessa maneira, poderemos iniciar a aplicação tranquilamente. Seja de maneira local ou através de um container.
+
+### Iniciando a aplicação
+
+Para iniciar a aplicação, execute o seguinte comando em seu terminal:
+
+```
+./mvnw spring-boot:run
+```
+
+Se tudo deu certo, o projeto vai estar funcionando devidamente. Você tem tanto a opção de visualizar o JSON quanto a página web que foi criada com o Thymeleaf. Para acessar o JSON, use ```locahost:8080``` e para acessar a página web, será através do seguinte domínio: ```http://localhost:8080/state```.
+
+
+## Manipulando a Query String
 
 > Não é necessário se preocupar com lançamento de exceções caso o tipo passado no query param for diferente do original. Os valores das variáveis definidas como query params são alteradas apenas com os valores/tipos corretos. 
 
